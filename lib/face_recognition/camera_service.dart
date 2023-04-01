@@ -26,7 +26,7 @@ class CameraService {
   Future<CameraDescription> getCameraDescription() async {
     List<CameraDescription> cameras = await availableCameras();
     return cameras.firstWhere((CameraDescription camera) =>
-    camera.lensDirection == CameraLensDirection.front);
+        camera.lensDirection == CameraLensDirection.back);
   }
 
   Future _setupCameraController({
@@ -64,7 +64,7 @@ class CameraService {
   Size getImageSize() {
     assert(_cameraController != null, 'Camera controller not initialized');
     assert(
-    _cameraController!.value.previewSize != null, 'Preview size is null');
+        _cameraController!.value.previewSize != null, 'Preview size is null');
     return Size(
       _cameraController!.value.previewSize!.height,
       _cameraController!.value.previewSize!.width,

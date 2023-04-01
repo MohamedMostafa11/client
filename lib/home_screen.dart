@@ -203,7 +203,7 @@ class _HomeState extends State<Home> {
                       color: Colors.black,
                       spreadRadius: 2,
                       blurRadius: 8,
-                      offset: Offset(4, 4)),
+                      offset: Offset(2, 2)),
                   BoxShadow(
                       color: Colors.grey,
                       spreadRadius: 1,
@@ -240,7 +240,7 @@ class _HomeState extends State<Home> {
                       color: Colors.black,
                       spreadRadius: 2,
                       blurRadius: 8,
-                      offset: Offset(4, 4)),
+                      offset: Offset(2, 2)),
                   BoxShadow(
                       color: Colors.grey,
                       spreadRadius: 1,

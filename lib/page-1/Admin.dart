@@ -83,7 +83,7 @@ class Admin extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    MapUtils.openMap(30.369934, 30.534628);
+                    MapUtils.openMap(30.575675, 31.008175);
                   },
                   child: Expanded(
                       child: Container(

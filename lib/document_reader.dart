@@ -16,7 +16,6 @@ class Doc_Reader extends StatefulWidget {
 }
 
 class _Doc_ReaderState extends State<Doc_Reader> {
-
   void initState() {
     super.initState();
     AlanVoice.deactivate();
@@ -25,98 +24,120 @@ class _Doc_ReaderState extends State<Doc_Reader> {
   }
 
   XFile? imageFile;
-  String scannedText="";
+  String scannedText = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.teal[700],
-        title: Text('Voxlens',
-          style: TextStyle(
-              color: Colors.white
-          ),),
+        title: Text(
+          'BPT',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children:[
-          Flexible(child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              GestureDetector(
-                onTap: (){
-                  getPdf();
-                },
-                child: Expanded(
-                    child: Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children : [
-                        Image.asset('assets/upload_doc.png', width: 70, height: 70,),
-                          Text('Upload Document',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                        ),),],
-                      ),
-                      padding: EdgeInsets.all(15.0),
-                      margin: EdgeInsets.all(10.0),
-                      width: MediaQuery.of(context).size.width/2.3,
-                      height: MediaQuery.of(context).size.height/4,
-                      // color: Colors.teal[300],
-                      decoration: BoxDecoration(
-                        color: Colors.teal[300],
-                        //border: Border.all(width: 3,color: Colors.black),
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                        boxShadow : [BoxShadow(color: Colors.black,spreadRadius: 2,blurRadius: 8,offset:Offset(4,4)),
-                          ],
-                      ),
-                    )),
-              ),
-
-
-
-          GestureDetector(
-              onTap: () {
-                getImage(1);
-              },
-              child: Expanded(child: Container(
-
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Image.asset('assets/upload_im.png', width: 70, height: 70,),
-                    Text('Upload Image',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),),
-                  ],
+        children: [
+          Flexible(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    getPdf();
+                  },
+                  child: Expanded(
+                      child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/upload_doc.png',
+                          width: 70,
+                          height: 70,
+                        ),
+                        Text(
+                          'Upload Document',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                    padding: EdgeInsets.all(15.0),
+                    margin: EdgeInsets.all(10.0),
+                    width: MediaQuery.of(context).size.width / 2.3,
+                    height: MediaQuery.of(context).size.height / 4,
+                    // color: Colors.teal[300],
+                    decoration: BoxDecoration(
+                      color: Colors.teal[300],
+                      //border: Border.all(width: 3,color: Colors.black),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black,
+                            spreadRadius: 2,
+                            blurRadius: 8,
+                            offset: Offset(4, 4)),
+                      ],
+                    ),
+                  )),
                 ),
-                padding: EdgeInsets.all(15.0),
-                margin: EdgeInsets.all(8.0),
-                width: MediaQuery.of(context).size.width/2.3,
-                height: MediaQuery.of(context).size.height/4,
-                // color: Colors.teal[300],
-                decoration: BoxDecoration(
-                  color: Colors.teal[300],
-                  //border: Border.all(width: 3,color: Colors.black),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                  boxShadow : [BoxShadow(color: Colors.black,spreadRadius: 2,blurRadius: 8,offset:Offset(4,4)),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    getImage(1);
+                  },
+                  child: Expanded(
+                      child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/upload_im.png',
+                          width: 70,
+                          height: 70,
+                        ),
+                        Text(
+                          'Upload Image',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                    padding: EdgeInsets.all(15.0),
+                    margin: EdgeInsets.all(8.0),
+                    width: MediaQuery.of(context).size.width / 2.3,
+                    height: MediaQuery.of(context).size.height / 4,
+                    // color: Colors.teal[300],
+                    decoration: BoxDecoration(
+                      color: Colors.teal[300],
+                      //border: Border.all(width: 3,color: Colors.black),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black,
+                            spreadRadius: 2,
+                            blurRadius: 8,
+                            offset: Offset(4, 4)),
+                      ],
+                    ),
+                  )),
                 ),
-              )),
+              ],
             ),
-            ],
+            flex: 2,
           ),
-            flex: 2,),
           // GestureDetector(
           //   onTap: (){
           //     getImage(0);
@@ -138,81 +159,95 @@ class _Doc_ReaderState extends State<Doc_Reader> {
           //     ),
           //   )),
           // ),
-          Flexible(child: Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    crossAxisAlignment: CrossAxisAlignment.center,
-
-    children: [GestureDetector(
-            onTap: (){
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) {
-                    return TextRecognizerView();
-                  }));
-            },
-            child: Expanded(child: Container(
-              child : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+          Flexible(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset('assets/scan.png', width: 70, height: 70,),
-                Text('Realtime OCR',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),),],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return TextRecognizerView();
+                    }));
+                  },
+                  child: Expanded(
+                      child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/scan.png',
+                          width: 70,
+                          height: 70,
+                        ),
+                        Text(
+                          'Realtime OCR',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                    padding: EdgeInsets.all(15.0),
+                    margin: EdgeInsets.all(10.0),
+                    width: MediaQuery.of(context).size.width / 2,
+                    height: MediaQuery.of(context).size.height / 4,
+                    // color: Colors.red[300],
+                    decoration: BoxDecoration(
+                      color: Colors.teal[300],
+                      //border: Border.all(width: 3,color: Colors.black),
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black,
+                            spreadRadius: 2,
+                            blurRadius: 8,
+                            offset: Offset(4, 4)),
+                      ],
+                    ),
+                  )),
                 ),
-              padding: EdgeInsets.all(15.0),
-              margin: EdgeInsets.all(10.0),
-              width: MediaQuery.of(context).size.width/2,
-              height: MediaQuery.of(context).size.height/4,
-              // color: Colors.red[300],
-              decoration: BoxDecoration(
-                color: Colors.teal[300],
-                //border: Border.all(width: 3,color: Colors.black),
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                boxShadow : [BoxShadow(color: Colors.black,spreadRadius: 2,blurRadius: 8,offset:Offset(4,4)),
-                  ],
-              ),
-            )),
-    ),
-    ],),
-          flex: 1,),
-
-        ],),
+              ],
+            ),
+            flex: 1,
+          ),
+        ],
+      ),
     );
   }
-
 }
 
 XFile? imageFile;
-String scannedText="";
-void getImage(int stch) async{
-  try{
-
+String scannedText = "";
+void getImage(int stch) async {
+  try {
     final pickedImage;
-    if(stch == 1){
+    if (stch == 1) {
       pickedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
-    }
-    else{
+    } else {
       pickedImage = await ImagePicker().pickImage(source: ImageSource.camera);
     }
-    if(pickedImage != null){
+    if (pickedImage != null) {
       imageFile = pickedImage;
       recognizeText(pickedImage);
     }
-  } catch(e){
+  } catch (e) {
     print("Error occured");
   }
 }
-void recognizeText(XFile image) async{
+
+void recognizeText(XFile image) async {
   final inputImage = InputImage.fromFilePath(image.path);
   final textDetector = GoogleMlKit.vision.textRecognizer();
   RecognizedText recognizedText = await textDetector.processImage(inputImage);
   await textDetector.close();
   scannedText = "";
-  for(TextBlock block in recognizedText.blocks){
-    for(TextLine line in block.lines){
+  for (TextBlock block in recognizedText.blocks) {
+    for (TextLine line in block.lines) {
       TTS().speak(line.text);
       scannedText = scannedText + line.text + "\n";
     }
@@ -222,7 +257,7 @@ void recognizeText(XFile image) async{
 }
 // }
 
-void getPdf() async{
+void getPdf() async {
   FilePickerResult? result = await FilePicker.platform.pickFiles();
 
   if (result != null) {
@@ -245,7 +280,7 @@ void getPDFtextPaginated(String path) async {
   List<String> textList = List<String>.empty();
   textList = await ReadPdfText.getPDFtextPaginated(path);
   print(textList);
-  for(String page in textList){
+  for (String page in textList) {
     TTS().speak(page);
   }
 }

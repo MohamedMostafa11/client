@@ -6,7 +6,6 @@ import 'locator.dart';
 import 'package:client/face_recognition/camera_service.dart';
 import 'package:flutter/services.dart';
 
-
 List<CameraDescription> cameras = [];
 Future main() async {
   setupServices();
@@ -16,11 +15,11 @@ Future main() async {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          appBarTheme: AppBarTheme(
-        color : Colors.teal[700],
-          ),
+        appBarTheme: AppBarTheme(
+          color: Colors.teal[700],
+        ),
       ),
-    home: Home()
-  ));
+      home: Home()));
 }
