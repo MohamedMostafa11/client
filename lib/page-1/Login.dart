@@ -3,10 +3,14 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'register.dart';
 import 'Admin.dart';
+import 'package:client/Model/Model.dart';
+import 'package:http/http.dart' as http;
 
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var _phoneNumber;
+    var _password;
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -41,6 +45,7 @@ class LoginPage extends StatelessWidget {
                         ),
                         labelText: 'Phone Number',
                       ),
+                      controller: _phoneNumber,
                     ),
                   ),
                   Container(
@@ -53,6 +58,7 @@ class LoginPage extends StatelessWidget {
                         ),
                         labelText: 'Password',
                       ),
+                      controller: _password,
                     ),
                   ),
                   Column(
@@ -72,10 +78,9 @@ class LoginPage extends StatelessWidget {
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 22)),
                               onPressed: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return Admin();
-                                }));
+                                final phoneNumber = _phoneNumber.text;
+                                final password = _password.text;
+                                login(phoneNumber, password);
                               })),
                       Container(
                         child: Text(

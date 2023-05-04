@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'Login.dart';
+import 'package:client/Model/Model.dart';
+import 'package:http/http.dart' as http;
 
 class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var _usernameController;
+    var _phoneNumberController;
+    var _linkedPhoneNumberController;
+    var _passwordController;
+    var _confirmPasswordController;
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -44,6 +51,7 @@ class RegisterPage extends StatelessWidget {
                       ),
                       labelText: 'User Name',
                     ),
+                    controller: _usernameController,
                   ),
                 ),
                 Container(
@@ -56,6 +64,7 @@ class RegisterPage extends StatelessWidget {
                       ),
                       labelText: 'Phone Number',
                     ),
+                    controller: _phoneNumberController,
                   ),
                 ),
                 Container(
@@ -68,6 +77,7 @@ class RegisterPage extends StatelessWidget {
                       ),
                       labelText: 'Blind Person Phone Number',
                     ),
+                    controller: _linkedPhoneNumberController,
                   ),
                 ),
                 Container(
@@ -80,6 +90,7 @@ class RegisterPage extends StatelessWidget {
                       ),
                       labelText: 'Password',
                     ),
+                    controller: _passwordController,
                   ),
                 ),
                 Container(
@@ -92,6 +103,7 @@ class RegisterPage extends StatelessWidget {
                       ),
                       labelText: 'Confirm Password',
                     ),
+                    controller: _confirmPasswordController,
                   ),
                 ),
                 Container(
@@ -109,10 +121,18 @@ class RegisterPage extends StatelessWidget {
                             style:
                                 TextStyle(color: Colors.white, fontSize: 22)),
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return LoginPage();
-                          }));
+                          // get the user input values
+                          final username = _usernameController.text;
+                          final phoneNumber = _phoneNumberController.text;
+                          final linkedPhoneNumber =
+                              _linkedPhoneNumberController.text;
+                          final password = _passwordController.text;
+                          final confirmPassword =
+                              _confirmPasswordController.text;
+
+                          // send the registration request
+                          register(username, phoneNumber, linkedPhoneNumber,
+                              password, confirmPassword);
                         })),
               ],
             ),
