@@ -149,23 +149,24 @@ class _HomeState extends State<Home> {
 
       body: Center(
 // <<<<<<< HEAD
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Container(
-              margin: EdgeInsets.all(25.0),
-              child: Image.asset(
-                'assets/icon.png',
-                height: 200,
-                width: 200,
-              )),
-          Text(
-            'BPT',
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 20.0,
-              color: Colors.teal[300],
-              fontFamily: 'Anton',
-            ),
+        child: SingleChildScrollView(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Container(
+                margin: EdgeInsets.all(25.0),
+                child: Image.asset(
+                  'assets/icon.png',
+                  height: 200,
+                  width: 200,
+                )),
+            Text(
+              'BPT',
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 20.0,
+                color: Colors.teal[300],
+                fontFamily: 'Anton',
+              ),
 // =======
 //         child: Text(
 //           'Voxlens',
@@ -176,82 +177,83 @@ class _HomeState extends State<Home> {
 //             color: Colors.red[300],
 //             fontFamily: 'Georgia',
 // >>>>>>> main
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return Main_menu();
-              }));
-              // STT().startListening() ;
-            },
-            child: Expanded(
-                child: Container(
-              child: Text(
-                'START',
-                style: TextStyle(
-                    color: Colors.white, fontFamily: 'Open Sans', fontSize: 20),
-              ),
-              padding: EdgeInsets.all(30.0),
-              margin: EdgeInsets.all(20.0),
-              // color: Colors.grey[600],
-              decoration: BoxDecoration(
-                color: Colors.teal[300],
-                // border: Border.all(width: 3,color: Colors.white),
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black,
-                      spreadRadius: 2,
-                      blurRadius: 8,
-                      offset: Offset(2, 2)),
-                  BoxShadow(
-                      color: Colors.grey,
-                      spreadRadius: 1,
-                      blurRadius: 6,
-                      offset: Offset(-4, -4))
-                ],
-              ),
-            )),
-            // backgroundColor: Colors.grey[600],
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return LoginPage();
-              }));
-              // STT().startListening() ;
-            },
-            child: Expanded(
-                child: Container(
-              child: Text(
-                'Start as Admin',
-                style: TextStyle(
-                    color: Colors.white, fontFamily: 'Open Sans', fontSize: 20),
-              ),
-              padding: EdgeInsets.all(30.0),
-              margin: EdgeInsets.all(20.0),
-              // color: Colors.grey[600],
-              decoration: BoxDecoration(
-                color: Colors.teal[300],
-                // border: Border.all(width: 3,color: Colors.white),
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black,
-                      spreadRadius: 2,
-                      blurRadius: 8,
-                      offset: Offset(2, 2)),
-                  BoxShadow(
-                      color: Colors.grey,
-                      spreadRadius: 1,
-                      blurRadius: 6,
-                      offset: Offset(-4, -4))
-                ],
-              ),
-            )),
-            // backgroundColor: Colors.grey[600],
-          ),
-        ]),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Main_menu();
+                }));
+                // STT().startListening() ;
+              },
+              child: Expanded(
+                  child: Container(
+                child: Text(
+                  'START',
+                  style: TextStyle(
+                      color: Colors.white, fontFamily: 'Open Sans', fontSize: 20),
+                ),
+                padding: EdgeInsets.all(30.0),
+                margin: EdgeInsets.all(20.0),
+                // color: Colors.grey[600],
+                decoration: BoxDecoration(
+                  color: Colors.teal[300],
+                  // border: Border.all(width: 3,color: Colors.white),
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black,
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: Offset(2, 2)),
+                    BoxShadow(
+                        color: Colors.grey,
+                        spreadRadius: 1,
+                        blurRadius: 6,
+                        offset: Offset(-4, -4))
+                  ],
+                ),
+              )),
+              // backgroundColor: Colors.grey[600],
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return LoginPage();
+                }));
+                // STT().startListening() ;
+              },
+              child: Expanded(
+                  child: Container(
+                child: Text(
+                  'Start as Admin',
+                  style: TextStyle(
+                      color: Colors.white, fontFamily: 'Open Sans', fontSize: 20),
+                ),
+                padding: EdgeInsets.all(30.0),
+                margin: EdgeInsets.all(20.0),
+                // color: Colors.grey[600],
+                decoration: BoxDecoration(
+                  color: Colors.teal[300],
+                  // border: Border.all(width: 3,color: Colors.white),
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black,
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: Offset(2, 2)),
+                    BoxShadow(
+                        color: Colors.grey,
+                        spreadRadius: 1,
+                        blurRadius: 6,
+                        offset: Offset(-4, -4))
+                  ],
+                ),
+              )),
+              // backgroundColor: Colors.grey[600],
+            ),
+          ]),
+        ),
       ),
 
       // floatingActionButton: FloatingActionButton(
