@@ -40,9 +40,10 @@ class _LoginPageState extends State<LoginPage> {
                         width: 200,
                         decoration: BoxDecoration(
                           border: Border.all(width: 5, color: Colors.teal),
+                          borderRadius: BorderRadius.circular(200),
                         ),
                         child: Image.asset(
-                          'assets/icon.png',
+                          'assets/icon2.png',
                         )),
                     Container(
                       padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),

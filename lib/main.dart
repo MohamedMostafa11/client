@@ -1,4 +1,5 @@
 import 'package:camera/camera.dart';
+import 'package:client/SplashScreen.dart';
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -20,5 +21,5 @@ Future main() async {
           color: Colors.teal[700],
         ),
       ),
-      home: Home()));
+      home: Splash()));
 }

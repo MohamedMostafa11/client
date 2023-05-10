@@ -42,9 +42,10 @@ class RegisterPage extends StatelessWidget {
                       width: 150,
                       decoration: BoxDecoration(
                         border: Border.all(width: 5, color: Colors.teal),
+                        borderRadius: BorderRadius.circular(200),
                       ),
                       child: Image.asset(
-                        'assets/icon.png',
+                        'assets/icon2.png',
                       )),
                   SizedBox(height: 10),
                   Container(
