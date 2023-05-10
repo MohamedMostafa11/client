@@ -2,23 +2,18 @@ import 'package:client/document_reader.dart';
 import 'package:client/object_detection/obj_camera_service.dart';
 import 'package:client/page-1/Login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'distance_calculation/object_detect.dart';
 import 'edge_detection/ocr_detection.dart';
 import 'face_recognition/face_rec.dart';
-import 'face_recognition/face_ui.dart';
 import 'main_menu.dart';
-import 'page-1/Login.dart';
 import 'object_detection.dart';
-import 'voice_rec.dart';
 import 'tts.dart';
 import 'package:alan_voice/alan_voice.dart';
 import 'package:client/face_recognition/ml_services.dart';
 import 'face_recognition/camera_service.dart';
 import 'face_recognition/face_detector_service.dart';
-import 'face_recognition/auth-action-button.dart';
 import 'locator.dart';
-import 'edge_detection/ocr_camera_service.dart';
-import 'object_detection/object_detect.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -123,7 +118,7 @@ class _HomeState extends State<Home> {
 
     _initializeServices();
     WidgetsBinding.instance
-        .addPostFrameCallback((_) => TTS().speak("Welcome to Application"));
+        .addPostFrameCallback((_) => TTS().speak("Welcome to Application Blind person tools to help you communicate with the outside world"));
   }
 
   _initializeServices() async {
@@ -138,35 +133,40 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
+    return WillPopScope(
+      onWillPop: ()async{
+        SystemNavigator.pop();
+        return Future.value(false);
+      },
+      child: Scaffold(
+        backgroundColor: Colors.white,
 
-      appBar: AppBar(
-        backgroundColor: Colors.teal[500],
-        title: Text('BPT'),
-        centerTitle: true,
-      ),
+        appBar: AppBar(
+          backgroundColor: Colors.teal[500],
+          title: Text('BPT'),
+          centerTitle: true,
+        ),
 
-      body: Center(
+        body: Center(
 // <<<<<<< HEAD
-        child: SingleChildScrollView(
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Container(
-                margin: EdgeInsets.all(25.0),
-                child: Image.asset(
-                  'assets/icon.png',
-                  height: 200,
-                  width: 200,
-                )),
-            Text(
-              'BPT',
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 20.0,
-                color: Colors.teal[300],
-                fontFamily: 'Anton',
-              ),
+          child: SingleChildScrollView(
+            child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Container(
+                  margin: EdgeInsets.all(25.0),
+                  child: Image.asset(
+                    'assets/icon.png',
+                    height: 200,
+                    width: 200,
+                  )),
+              Text(
+                'BPT',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 20.0,
+                  color: Colors.teal[300],
+                  fontFamily: 'Anton',
+                ),
 // =======
 //         child: Text(
 //           'Voxlens',
@@ -177,99 +177,100 @@ class _HomeState extends State<Home> {
 //             color: Colors.red[300],
 //             fontFamily: 'Georgia',
 // >>>>>>> main
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Main_menu();
-                }));
-                // STT().startListening() ;
-              },
-              child: Expanded(
-                  child: Container(
-                child: Text(
-                  'START',
-                  style: TextStyle(
-                      color: Colors.white, fontFamily: 'Open Sans', fontSize: 20),
-                ),
-                padding: EdgeInsets.all(30.0),
-                margin: EdgeInsets.all(20.0),
-                // color: Colors.grey[600],
-                decoration: BoxDecoration(
-                  color: Colors.teal[300],
-                  // border: Border.all(width: 3,color: Colors.white),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.black,
-                        spreadRadius: 2,
-                        blurRadius: 8,
-                        offset: Offset(2, 2)),
-                    BoxShadow(
-                        color: Colors.grey,
-                        spreadRadius: 1,
-                        blurRadius: 6,
-                        offset: Offset(-4, -4))
-                  ],
-                ),
-              )),
-              // backgroundColor: Colors.grey[600],
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return LoginPage();
-                }));
-                // STT().startListening() ;
-              },
-              child: Expanded(
-                  child: Container(
-                child: Text(
-                  'Start as Admin',
-                  style: TextStyle(
-                      color: Colors.white, fontFamily: 'Open Sans', fontSize: 20),
-                ),
-                padding: EdgeInsets.all(30.0),
-                margin: EdgeInsets.all(20.0),
-                // color: Colors.grey[600],
-                decoration: BoxDecoration(
-                  color: Colors.teal[300],
-                  // border: Border.all(width: 3,color: Colors.white),
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.black,
-                        spreadRadius: 2,
-                        blurRadius: 8,
-                        offset: Offset(2, 2)),
-                    BoxShadow(
-                        color: Colors.grey,
-                        spreadRadius: 1,
-                        blurRadius: 6,
-                        offset: Offset(-4, -4))
-                  ],
-                ),
-              )),
-              // backgroundColor: Colors.grey[600],
-            ),
-          ]),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return Main_menu();
+                  }));
+                  // STT().startListening() ;
+                },
+                child: Expanded(
+                    child: Container(
+                  child: Text(
+                    'START',
+                    style: TextStyle(
+                        color: Colors.white, fontFamily: 'Open Sans', fontSize: 20),
+                  ),
+                  padding: EdgeInsets.all(30.0),
+                  margin: EdgeInsets.all(20.0),
+                  // color: Colors.grey[600],
+                  decoration: BoxDecoration(
+                    color: Colors.teal[300],
+                    // border: Border.all(width: 3,color: Colors.white),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black,
+                          spreadRadius: 2,
+                          blurRadius: 8,
+                          offset: Offset(2, 2)),
+                      BoxShadow(
+                          color: Colors.grey,
+                          spreadRadius: 1,
+                          blurRadius: 6,
+                          offset: Offset(-4, -4))
+                    ],
+                  ),
+                )),
+                // backgroundColor: Colors.grey[600],
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return LoginPage();
+                  }));
+                  // STT().startListening() ;
+                },
+                child: Expanded(
+                    child: Container(
+                  child: Text(
+                    'Start as Admin',
+                    style: TextStyle(
+                        color: Colors.white, fontFamily: 'Open Sans', fontSize: 20),
+                  ),
+                  padding: EdgeInsets.all(30.0),
+                  margin: EdgeInsets.all(20.0),
+                  // color: Colors.grey[600],
+                  decoration: BoxDecoration(
+                    color: Colors.teal[300],
+                    // border: Border.all(width: 3,color: Colors.white),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black,
+                          spreadRadius: 2,
+                          blurRadius: 8,
+                          offset: Offset(2, 2)),
+                      BoxShadow(
+                          color: Colors.grey,
+                          spreadRadius: 1,
+                          blurRadius: 6,
+                          offset: Offset(-4, -4))
+                    ],
+                  ),
+                )),
+                // backgroundColor: Colors.grey[600],
+              ),
+            ]),
+          ),
         ),
+
+        // floatingActionButton: FloatingActionButton(
+        //   child: Text('Start'),
+        //   onPressed: () {
+        //     Navigator.push(context,
+        //         MaterialPageRoute(builder: (context) {
+        //           return Main_menu();
+        //         }));
+        //      // STT().startListening() ;
+        //
+        //   },
+
+        //   backgroundColor: Colors.red[300],
+        // ),
+        // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       ),
-
-      // floatingActionButton: FloatingActionButton(
-      //   child: Text('Start'),
-      //   onPressed: () {
-      //     Navigator.push(context,
-      //         MaterialPageRoute(builder: (context) {
-      //           return Main_menu();
-      //         }));
-      //      // STT().startListening() ;
-      //
-      //   },
-
-      //   backgroundColor: Colors.red[300],
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

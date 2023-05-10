@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:client/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'main.dart';
 
 class Splash extends StatefulWidget {
   @override
@@ -12,7 +11,7 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () {
+    Timer(Duration(seconds: 4), () {
       Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
     });
   }
@@ -25,7 +24,7 @@ class _SplashState extends State<Splash> {
           gradient: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomRight,
-              colors: [Colors.teal.shade200, Colors.teal.shade600]),
+              colors: [Colors.teal.shade300, Colors.teal.shade700]),
         ),
         child: Center(
           child: Column(
@@ -46,7 +45,7 @@ class _SplashState extends State<Splash> {
                 height: 50.0,
               ),
               Text(
-                'Welcome to Application',
+                'Blind Person Tools',
                 style: TextStyle(
                   fontSize: 30.0,
                   color: Colors.white,
