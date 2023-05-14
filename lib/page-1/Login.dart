@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'dart:ui';
+import 'package:client/tts.dart';
 import 'register.dart';
 import 'Admin.dart';
 import 'package:http/http.dart' as http;
@@ -119,6 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                                     if(formKey.currentState!.validate()){
                                     Navigator.push(context,
                                     MaterialPageRoute(builder: (context) => Admin()));
+                                    TTS().speak("Login success");
                                     }
                                   }
 

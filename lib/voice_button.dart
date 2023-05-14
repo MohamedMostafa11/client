@@ -1,3 +1,4 @@
+import 'package:client/page-1/Login.dart';
 import 'package:client/tts.dart';
 import 'package:flutter/material.dart';
 import 'main_menu.dart';
@@ -15,7 +16,7 @@ class Voice_Button extends StatefulWidget {
 }
 
 class _Voice_ButtonState extends State<Voice_Button> {
-  var commands = {"start": 1, "read": 2};
+  var commands = {"start": 1, "read": 2 ,"login":3};
 
   void action(String str) {
     // print(commands[str]);
@@ -34,6 +35,14 @@ class _Voice_ButtonState extends State<Voice_Button> {
             return Doc_Reader();
           }));
           TTS().speak("Opened Reader.");
+        }
+        break;
+      case 3:
+        {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return LoginPage();
+          }));
+          TTS().speak("Opened Login admin Page.");
         }
     }
   }

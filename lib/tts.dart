@@ -6,7 +6,7 @@ class TTS {
   int state = 0;
   TTS() {
     tts.setLanguage('en');
-    tts.setSpeechRate(0.3);
+    tts.setSpeechRate(0.5);
     tts.awaitSpeakCompletion(true);
     tts.awaitSynthCompletion(true);
   }

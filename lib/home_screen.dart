@@ -1,6 +1,7 @@
 import 'package:client/document_reader.dart';
 import 'package:client/object_detection/obj_camera_service.dart';
 import 'package:client/page-1/Login.dart';
+import 'package:client/tts2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'distance_calculation/object_detect.dart';
@@ -14,6 +15,9 @@ import 'package:client/face_recognition/ml_services.dart';
 import 'face_recognition/camera_service.dart';
 import 'face_recognition/face_detector_service.dart';
 import 'locator.dart';
+import 'package:flutter_tts/flutter_tts.dart';
+TTS tts2 = new TTS();
+MyTTS myTTS = MyTTS();
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -50,8 +54,9 @@ class _HomeState extends State<Home> {
         break;
       case "read":
         AlanVoice.deactivate();
-        TTS().speak(
-            "Available options are: Upload document, upload image and scan document");
+        //TTS().speak("Available options are: Upload document, upload image and scan document");
+        myTTS.speakEnglish('Available options are: Upload document, upload image and scan document'); // speak English message
+        myTTS.speakArabic('الخيارات المتاحة هي: تحميل المستند وتحميل الصورة والمسح الضوئي للمستند');
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return Doc_Reader();
         }));
@@ -118,7 +123,11 @@ class _HomeState extends State<Home> {
 
     _initializeServices();
     WidgetsBinding.instance
-        .addPostFrameCallback((_) => TTS().speak("Welcome to Application Blind person tools to help you communicate with the outside world"));
+        .addPostFrameCallback((_) async {
+          //TTS().speak("Welcome to Application Blind person tools to help you communicate with the outside world");
+          await myTTS.speakEnglish('Welcome to Application Blind person tools to help you communicate with the outside world'); // speak English message
+          await myTTS.speakArabic('مرحبًا بك في تطبيق المكفوفين لمساعدتهم على التواصل');
+    });
   }
 
   _initializeServices() async {
