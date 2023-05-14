@@ -26,7 +26,7 @@ class _NavigationState extends State<Navigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[700],
+      backgroundColor: Colors.teal[700],
       appBar: AppBar(
         backgroundColor: Colors.grey[900],
         title: Text(
@@ -57,7 +57,7 @@ class _NavigationState extends State<Navigation> {
                     margin: EdgeInsets.all(10.0),
                     // color: Colors.grey[900],
                     decoration: BoxDecoration(
-                      color: Colors.grey[900],
+                      color: Colors.teal[900],
                       border: Border.all(width: 3, color: Colors.black),
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                       boxShadow: [
@@ -67,7 +67,7 @@ class _NavigationState extends State<Navigation> {
                             blurRadius: 8,
                             offset: Offset(4, 4)),
                         BoxShadow(
-                            color: Colors.grey,
+                            color: Colors.teal,
                             spreadRadius: 1,
                             blurRadius: 8,
                             offset: Offset(-4, -4))
@@ -107,7 +107,7 @@ class _NavigationState extends State<Navigation> {
                     margin: EdgeInsets.all(10.0),
                     // color: Colors.grey[900],
                     decoration: BoxDecoration(
-                      color: Colors.grey[900],
+                      color: Colors.teal[900],
                       border: Border.all(width: 3, color: Colors.black),
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                       boxShadow: [
@@ -117,7 +117,7 @@ class _NavigationState extends State<Navigation> {
                             blurRadius: 8,
                             offset: Offset(4, 4)),
                         BoxShadow(
-                            color: Colors.grey,
+                            color: Colors.teal,
                             spreadRadius: 1,
                             blurRadius: 8,
                             offset: Offset(-4, -4))

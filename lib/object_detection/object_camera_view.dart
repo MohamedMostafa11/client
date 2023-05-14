@@ -115,7 +115,7 @@ class _CameraViewState extends State<CameraView> {
     return SizedBox(
         height: 70.0,
         width: 70.0,
-        child: FloatingActionButton(
+        child: FloatingActionButton(backgroundColor: Colors.teal,
           onPressed: _switchLiveCamera,
           child: Icon(
             Platform.isIOS
@@ -171,7 +171,7 @@ class _CameraViewState extends State<CameraView> {
             bottom: 100,
             left: 50,
             right: 50,
-            child: Slider(
+            child: Slider(activeColor: Colors.teal,
               value: zoomLevel,
               min: minZoomLevel,
               max: maxZoomLevel,
@@ -207,18 +207,22 @@ class _CameraViewState extends State<CameraView> {
       )
           : Icon(
         Icons.image,
-        size: 200,
+        size: 200,color: Colors.teal.shade900,
       ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
-        child: ElevatedButton(
+        child: ElevatedButton(style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.teal,
+        ),
           child: Text('From Gallery'),
           onPressed: () => _getImage(ImageSource.gallery),
         ),
       ),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
-        child: ElevatedButton(
+        child: ElevatedButton(style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.teal,
+        ),
           child: Text('Take a picture'),
           onPressed: () => _getImage(ImageSource.camera),
         ),

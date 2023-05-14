@@ -36,14 +36,12 @@ class MLService {
       //         waitType: TFLGpuDelegateWaitType.active),
       //   );
       // }
-      // TTS().speak('loading chyunnu');
       // var interpreterOptions = InterpreterOptions().addDelegate(delegate);
       this._interpreter = await Interpreter.fromAsset('mobilefacenet.tflite');
       print('Successsssssssssssss||||||||||||||||||||||||||||//////////////////////////');
       TTS().speak('success');
     } catch (e) {
       print('ooompi|||||||||||||||||||????????????????????/////////////////');
-      // TTS().speak('loading chyaan pateela');
       print('Failed to load model.');
       print(e);
     }

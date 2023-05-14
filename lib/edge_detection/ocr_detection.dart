@@ -79,10 +79,10 @@ class _TextRecognizerViewState extends State<TextRecognizerView> {
         if(tts.state == 0)
           tts.speak("move down");
       }
-      // else if(!(block.boundingBox.left < 10) || !(block.cornerPoints[1].y < 10)){
-      //     Vibration.vibrate(duration: 1000);
-      //     await tts.speak("capture");
-      // }
+       else if(!(block.boundingBox.left < 10) || !(block.cornerPoints[1].y < 10)){
+           Vibration.vibrate(duration: 1000);
+           await tts.speak("capture");
+       }
 
       print('=======================================================================');
       print(MediaQuery.of(context).size.width);

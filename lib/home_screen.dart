@@ -169,12 +169,12 @@ class _HomeState extends State<Home> {
                 ),
 // =======
 //         child: Text(
-//           'Voxlens',
+//           'BPT',
 //           style: TextStyle(
 //             fontSize: 35.0,
 //             fontWeight: FontWeight.bold,
 //             letterSpacing: 5.0,
-//             color: Colors.red[300],
+//             color: Colors.teal[300],
 //             fontFamily: 'Georgia',
 // >>>>>>> main
               ),

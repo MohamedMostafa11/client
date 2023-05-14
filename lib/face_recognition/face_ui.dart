@@ -33,8 +33,8 @@ class _FaceUIState extends State<FaceUI> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
-        title: Text('Voxlens',
+        backgroundColor: Colors.teal,
+        title: Text('BPT',
           style: TextStyle(
               color: Colors.white
           ),),
@@ -67,7 +67,7 @@ class _FaceUIState extends State<FaceUI> {
                       height: MediaQuery.of(context).size.height/4,
                       // color: Colors.grey[900],
                       decoration: BoxDecoration(
-                        color: Colors.lightBlueAccent,
+                        color: Colors.teal.shade200,
                         //border: Border.all(width: 3,color: Colors.black),
                         borderRadius: BorderRadius.all(Radius.circular(15)),
                         boxShadow : [BoxShadow(color: Colors.black,spreadRadius: 2,blurRadius: 8,offset:Offset(4,4)),
@@ -110,7 +110,7 @@ class _FaceUIState extends State<FaceUI> {
                       height: MediaQuery.of(context).size.height/4,
                       // color: Colors.grey[900],
                       decoration: BoxDecoration(
-                        color: Colors.lightBlueAccent,
+                        color: Colors.teal,
                         //border: Border.all(width: 3,color: Colors.black),
                         borderRadius: BorderRadius.all(Radius.circular(15)),
                         boxShadow : [BoxShadow(color: Colors.black,spreadRadius: 2,blurRadius: 8,offset:Offset(4,4)),

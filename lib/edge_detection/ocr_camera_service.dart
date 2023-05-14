@@ -152,12 +152,12 @@ class _CameraViewState extends State<CameraView> {
           ),
         ));
   }
-  // Future _setImagePath() async{
-  //   assert(_controller != null, 'Camera controller not initialized');
-  //   await _controller?.stopImageStream();
-  //   XFile? file = await _controller?.takePicture();
-  //   imagePath = file?.path;
-  // }
+   Future _setImagePath() async{
+     assert(_controller != null, 'Camera controller not initialized');
+     await _controller?.stopImageStream();
+     XFile? file = await _controller?.takePicture();
+     imagePath = file?.path;
+   }
   Widget _captured_body(){
     widget.onImage(inputImage);
     widget.is_captured = true;
@@ -230,13 +230,13 @@ class _CameraViewState extends State<CameraView> {
     return body;
   }
 
-  // Future<String> getFilePath() async {
-  //   Directory appDocumentsDirectory = await getApplicationDocumentsDirectory(); // 1
-  //   String appDocumentsPath = appDocumentsDirectory.path; // 2
-  //   String filePath = '$appDocumentsPath/demoTextFile.txt'; // 3
-  //
-  //   return filePath;
-  // }
+   Future<String> getFilePath() async {
+     Directory appDocumentsDirectory = await getApplicationDocumentsDirectory(); // 1
+     String appDocumentsPath = appDocumentsDirectory.path; // 2
+     String filePath = '$appDocumentsPath/demoTextFile.txt'; // 3
+
+     return filePath;
+  }
 
 
   Widget _liveFeedBody() {
