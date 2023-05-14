@@ -16,7 +16,6 @@ import 'face_recognition/camera_service.dart';
 import 'face_recognition/face_detector_service.dart';
 import 'locator.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-TTS tts2 = new TTS();
 MyTTS myTTS = MyTTS();
 
 class Home extends StatefulWidget {

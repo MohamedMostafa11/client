@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:image_picker/image_picker.dart';
+import 'home_screen.dart';
 import 'tts.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:read_pdf_text/read_pdf_text.dart';
@@ -20,7 +21,10 @@ class _Doc_ReaderState extends State<Doc_Reader> {
     super.initState();
     AlanVoice.deactivate();
     WidgetsBinding.instance
-        .addPostFrameCallback((_) => TTS().speak("Opened Doc reader"));
+        .addPostFrameCallback((_) {
+          TTS().speak("Opened Doc reader");
+          myTTS.speakArabic('تم فتح القارئ');
+    });
   }
 
   XFile? imageFile;

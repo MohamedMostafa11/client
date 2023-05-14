@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:client/tts.dart';
+import '../home_screen.dart';
 import 'ocr_camera_service.dart';
 import 'text_detector_painter.dart';
 import 'package:vibration/vibration.dart';
@@ -82,7 +83,8 @@ class _TextRecognizerViewState extends State<TextRecognizerView> {
        else if(!(block.boundingBox.left < 10) || !(block.cornerPoints[1].y < 10)){
            Vibration.vibrate(duration: 1000);
            await tts.speak("capture");
-       }
+           await myTTS.speakArabic('التقط');
+      }
 
       print('=======================================================================');
       print(MediaQuery.of(context).size.width);

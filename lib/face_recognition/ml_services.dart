@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
 import 'package:camera/camera.dart';
+import '../home_screen.dart';
 import 'db_helper.dart';
 import 'user_model.dart';
 import 'convert_image.dart';
@@ -40,6 +41,7 @@ class MLService {
       this._interpreter = await Interpreter.fromAsset('mobilefacenet.tflite');
       print('Successsssssssssssss||||||||||||||||||||||||||||//////////////////////////');
       TTS().speak('success');
+      myTTS.speakArabic('تم بنجاح');
     } catch (e) {
       print('ooompi|||||||||||||||||||????????????????????/////////////////');
       print('Failed to load model.');

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'document_reader.dart';
 import 'currency_detector.dart';
+import 'home_screen.dart';
 import 'object_detection/object_detect.dart';
 import 'tts.dart';
 import 'package:alan_voice/alan_voice.dart';
@@ -23,7 +24,10 @@ class _Main_menuState extends State<Main_menu> {
     super.initState();
     AlanVoice.deactivate();
     WidgetsBinding.instance
-        .addPostFrameCallback((_) => TTS().speak("Opened main menu"));
+        .addPostFrameCallback((_) {
+          TTS().speak("Opened main menu");
+          myTTS.speakArabic('تم فتح القائمة');
+    });
   }
 
   @override

@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:camera/camera.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:flutter/material.dart';
+import '../home_screen.dart';
 import 'camera_service.dart';
 import 'package:client/locator.dart';
 import 'face_painter.dart';
@@ -148,10 +149,14 @@ class FaceRecState extends State<FaceRec> {
             speaking = true;
             if(faceDetected != null){
               if(tts.state == 0) {
-                if(name != null)
+                if(name != null){
                   tts.speak("found" + name!);
-                else
+                myTTS.speakArabic(' ${name} وجد');
+                }
+              else{
                   tts.speak("found unknown person");
+                  myTTS.speakArabic('لا يوجد احد');
+                }
               }
             }
             speaking = false;

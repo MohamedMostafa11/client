@@ -1,5 +1,6 @@
 import 'package:client/page-1/Login.dart';
 import 'package:client/tts.dart';
+import 'package:client/tts2.dart';
 import 'package:flutter/material.dart';
 import 'main_menu.dart';
 import 'voice_rec.dart';
@@ -27,6 +28,7 @@ class _Voice_ButtonState extends State<Voice_Button> {
             return Main_menu();
           }));
           TTS().speak("Opened Main menu.");
+          myTTS.speakArabic('تم فتح القائمة');
         }
         break;
       case 2:
@@ -35,6 +37,7 @@ class _Voice_ButtonState extends State<Voice_Button> {
             return Doc_Reader();
           }));
           TTS().speak("Opened Reader.");
+          myTTS.speakArabic('تم فتح القارئ');
         }
         break;
       case 3:
@@ -43,6 +46,7 @@ class _Voice_ButtonState extends State<Voice_Button> {
             return LoginPage();
           }));
           TTS().speak("Opened Login admin Page.");
+          myTTS.speakArabic('تم فتح صفحة تسجيل الدخول للمساعد');
         }
     }
   }

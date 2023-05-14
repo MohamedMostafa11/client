@@ -4,6 +4,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_object_detection/google_mlkit_object_detection.dart';
 
+import '../home_screen.dart';
 import '../tts.dart';
 import 'coordinates_translator.dart';
 
@@ -119,6 +120,7 @@ class ObjectDetectorPainter extends CustomPainter {
             if(tts.state == 0){
               Future.delayed(const Duration(milliseconds: 500),);
               tts.speak("${label.text} is {$dist} metre away");
+              myTTS.speakArabic(label.text +"علي بعد "+ dist+ "متر");
             }
             builder.addText('distance ${dist}\n');
           }

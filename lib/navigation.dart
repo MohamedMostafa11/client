@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:image_picker/image_picker.dart';
+import 'home_screen.dart';
 import 'tts.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:read_pdf_text/read_pdf_text.dart';
@@ -345,5 +346,6 @@ class _NavigationState extends State<Navigation> {
     );
     print("Training over");
     TTS().speak("registered");
+    myTTS.speakArabic('تم التسجيل');
   }
 }
