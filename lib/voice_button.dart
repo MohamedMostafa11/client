@@ -8,6 +8,7 @@ import 'home_screen.dart';
 import 'document_reader.dart';
 import 'currency_detector.dart';
 import 'profile.dart';
+MyTTS myTTS = MyTTS();
 
 class Voice_Button extends StatefulWidget {
   const Voice_Button({Key? key}) : super(key: key);

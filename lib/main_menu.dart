@@ -1,3 +1,4 @@
+import 'package:client/tts2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'document_reader.dart';
@@ -11,6 +12,7 @@ import 'object_detection.dart';
 import 'face_recognition/face_ui.dart';
 import 'distance_calculation/object_detect.dart';
 import 'face_recognition/face_rec.dart';
+MyTTS myTTS = MyTTS();
 
 class Main_menu extends StatefulWidget {
   const Main_menu({Key? key}) : super(key: key);

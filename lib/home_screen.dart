@@ -125,7 +125,7 @@ class _HomeState extends State<Home> {
         .addPostFrameCallback((_) async {
           //TTS().speak("Welcome to Application Blind person tools to help you communicate with the outside world");
           await myTTS.speakEnglish('Welcome to Application Blind person tools to help you communicate with the outside world'); // speak English message
-          await myTTS.speakArabic('مرحبًا بك في تطبيق المكفوفين لمساعدتهم على التواصل');
+          await myTTS.speakArabic('مرحبًا بك في تطبيق لمساعدة المكفوفين على التواصل');
     });
   }
 
