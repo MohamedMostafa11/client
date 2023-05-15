@@ -2,6 +2,7 @@ import 'package:client/document_reader.dart';
 import 'package:client/object_detection/obj_camera_service.dart';
 import 'package:client/page-1/Login.dart';
 import 'package:client/page-1/Login2.dart';
+import 'package:client/page-1/Login3.dart';
 import 'package:client/tts2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -227,7 +228,7 @@ class _HomeState extends State<Home> {
               GestureDetector(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return LoginPage2();
+                    return LoginPage3();
                   }));
                   // STT().startListening() ;
                 },
