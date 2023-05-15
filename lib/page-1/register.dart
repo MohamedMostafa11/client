@@ -3,7 +3,6 @@ import 'package:flutter/gestures.dart';
 import 'dart:ui';
 import 'Admin.dart';
 import 'Login.dart';
-import 'package:client/Model/Model.dart';
 import 'package:http/http.dart' as http;
 
 class RegisterPage extends StatelessWidget {
