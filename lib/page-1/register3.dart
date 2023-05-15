@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:client/page-1/Login3.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -13,12 +15,16 @@ class _RegisterPageState3 extends State<RegisterPage3> {
   final formKey = GlobalKey<FormState>();
   bool secure = true;
   bool secure2 = true;
+
+  var userName, phoneNumber, linkedPhoneNumber;
+  var password,confirmPassword;
+
   final _usernameController = TextEditingController();
   final _phoneNumberController = TextEditingController();
   final _linkedPhoneNumberController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
-
+/*
   Future<void> register(BuildContext context, String username, String phoneNumber, String linkedPhoneNumber, String password, String confirmPassword) async {
     // API endpoint URL
     var url = Uri.parse('http://192.168.1.4:8000/api/register');
@@ -100,6 +106,7 @@ class _RegisterPageState3 extends State<RegisterPage3> {
       );
     }
   }
+  */
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -147,7 +154,16 @@ class _RegisterPageState3 extends State<RegisterPage3> {
                         labelText: 'User Name',
                       ),
                       controller: _usernameController,
+                      onChanged: (value){
+                        setState(() {
+                          userName=value;
+                        });
+                        print(value);
+                      },
 
+                      onSaved: (_userName){
+                        userName = _userName;
+                      },
                       validator: (value){
                         if(value!.isEmpty){
                           return 'Please your Name';
@@ -176,6 +192,17 @@ class _RegisterPageState3 extends State<RegisterPage3> {
                         counterText: '',
                       ),
                       controller: _phoneNumberController,
+                      onChanged: (value){
+                        setState(() {
+                          phoneNumber=value;
+                        });
+                        print(value);
+                      },
+
+                      onSaved: (_phoneNumber){
+                        phoneNumber = _phoneNumber;
+                      },
+                      keyboardType: TextInputType.phone,
                       validator: (value){
                         if(value!.isEmpty){
                           return 'Please enter your phone number';
@@ -201,6 +228,17 @@ class _RegisterPageState3 extends State<RegisterPage3> {
                         counterText: '',
                       ),
                       controller: _linkedPhoneNumberController,
+                      onChanged: (value){
+                        setState(() {
+                          linkedPhoneNumber=value;
+                        });
+                        print(value);
+                      },
+
+                      onSaved: (_linkedPhoneNumber){
+                        linkedPhoneNumber = _linkedPhoneNumber;
+                      },
+                      keyboardType: TextInputType.phone,
                       validator: (value){
                         if(value!.isEmpty){
                           return 'Please enter Blind Person phone number';
@@ -232,6 +270,16 @@ class _RegisterPageState3 extends State<RegisterPage3> {
                         labelText: 'Password',
                       ),
                       controller: _passwordController,
+                      onChanged: (value){
+                        setState(() {
+                          password=value;
+                        });
+                        print(value);
+                      },
+
+                      onSaved: (_password){
+                        password = _password;
+                      },
                       validator: (value){
                         if(value!.isEmpty){
                           return 'Please enter your Password';
@@ -265,6 +313,16 @@ class _RegisterPageState3 extends State<RegisterPage3> {
                         labelText: 'Confirm Password',
                       ),
                       controller: _confirmPasswordController,
+                      onChanged: (value){
+                        setState(() {
+                          confirmPassword=value;
+                        });
+                        print(value);
+                      },
+
+                      onSaved: (_confirmPassword){
+                        confirmPassword = _confirmPassword;
+                      },
                       validator: (value){
                         if(value!.isEmpty){
                           return 'Please enter your Password';
@@ -294,6 +352,7 @@ class _RegisterPageState3 extends State<RegisterPage3> {
                         'Register',
                         style: TextStyle(color: Colors.white, fontSize: 22),
                       ),
+                      /*
                       onPressed: () {
                         if(formKey.currentState!.validate()) {
                           final username = _usernameController.text;
@@ -308,6 +367,34 @@ class _RegisterPageState3 extends State<RegisterPage3> {
                               password, confirmPassword);
                         }
                       },
+                      */
+
+                      onPressed: ()async{
+                        if(formKey.currentState!.validate()) {
+                          String url = 'http://192.168.1.4:8000/api/register';
+                          http.Response response = await http.post(
+                            Uri.parse(url),
+                            headers: <String, String>{
+                              'Content-Type': 'application/json; char=UTF-8',
+                            },
+                            body: jsonEncode(
+                              {
+                                'username': userName,
+                                'phone_number': phoneNumber,
+                                'linked_phone_number': linkedPhoneNumber,
+                                'password': password,
+                                'password_confirm': confirmPassword
+                              },
+                            ),
+                          );
+                          var body = json.decode(response.body);
+                          print(body);
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => LoginPage3()));
+                        }
+
+                      }
+
                     ),
 
                     // ... your existing code ...

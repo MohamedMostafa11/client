@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:client/page-1/Admin.dart';
 import 'package:client/page-1/register2.dart';
 import 'package:client/page-1/register3.dart';
@@ -15,7 +17,8 @@ class LoginPage3 extends StatefulWidget {
 class _LoginPageState3 extends State<LoginPage3> {
   var formKey = GlobalKey<FormState>();
   bool secure = true;
-
+  var phoneNumber, password;
+/*
   Future<void> login(BuildContext context, String phone_number, String password) async {
     // API endpoint URL
     var url = Uri.parse('http://192.168.1.4:8000/api/login');
@@ -78,7 +81,7 @@ class _LoginPageState3 extends State<LoginPage3> {
         },
       );
     }
-  }
+  }*/
   @override
   Widget build(BuildContext context) {
     var _phoneNumber;
@@ -92,6 +95,7 @@ class _LoginPageState3 extends State<LoginPage3> {
         home: Scaffold(
             appBar: AppBar(
               title: Text('Login Screen'),
+              centerTitle: true,
             ),
             body: Form(
               key: formKey,
@@ -124,6 +128,17 @@ class _LoginPageState3 extends State<LoginPage3> {
                             labelText: 'Phone Number',
                           ),
                           controller: _phoneNumber,
+                            onChanged: (value){
+                              setState(() {
+                                phoneNumber =value;
+                              });
+                              print(value);
+                            },
+
+                            onSaved: (_phoneNumber){
+                              phoneNumber = _phoneNumber;
+                            },
+                          keyboardType: TextInputType.phone,
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Please enter phone number';
@@ -156,6 +171,15 @@ class _LoginPageState3 extends State<LoginPage3> {
                             labelText: 'Password',
                           ),
                           controller: _password,
+                          onChanged: (value){
+                            setState(() {
+                              password=value;
+                            });
+                            print(value);
+                          },
+                          onSaved: (_password){
+                            password = _password;
+                          },
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Please enter your Password';
@@ -187,12 +211,33 @@ class _LoginPageState3 extends State<LoginPage3> {
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 22),
                               ),
-                              onPressed: () {
+                             /* onPressed: () {
                                 if(formKey.currentState!.validate()) {
                                   final phone_number = _phoneNumber.text;
                                   final password = _password.text;
                                   login(context,phone_number, password);
                                 }
+                              },*/
+                              onPressed: ()async{
+                                  if (formKey.currentState!.validate()) {
+                                    String url = 'http://192.168.1.4:8000/api/login';
+                                    http.Response response = await http.post(
+                                      Uri.parse(url),
+                                      headers: <String, String>{
+                                        'Content-Type': 'application/json; char=UTF-8',
+                                      },
+                                      body: jsonEncode(
+                                        {
+                                          'phone_number': phoneNumber,
+                                          'password': password,
+                                        },
+                                      ),
+                                    );
+                                    var body = json.decode(response.body);
+                                    print(body);
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) => Admin()));
+                                  }
                               },
                             ),
 
