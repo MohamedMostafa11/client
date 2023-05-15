@@ -12,7 +12,7 @@ class LoginPage2 extends StatefulWidget {
 
 class _LoginPageState2 extends State<LoginPage2> {
   var formKey = GlobalKey<FormState>();
-
+  bool secure = true;
   Future<void> login(String phone_number, String password) async {
     // API endpoint URL
     var url = Uri.parse('http://192.168.1.4:8000/api/login');
@@ -88,6 +88,7 @@ class _LoginPageState2 extends State<LoginPage2> {
                         padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                         child: TextFormField(
                           decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.phone),
                             border: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.teal),
                               borderRadius: BorderRadius.circular(90.0),
@@ -110,8 +111,17 @@ class _LoginPageState2 extends State<LoginPage2> {
                       Container(
                         padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                         child: TextFormField(
-                          obscureText: true,
+                          obscureText: secure,
                           decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.lock),
+                            suffixIcon: IconButton(
+                                onPressed: (){
+                                  setState(() {
+                                    secure = !secure;
+                                  });
+                                },
+                                icon: secure ? Icon(Icons.visibility):Icon(Icons.visibility_off),
+                                color: Color(0xFF063F37)),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(90.0),
                             ),
@@ -150,9 +160,11 @@ class _LoginPageState2 extends State<LoginPage2> {
                                     color: Colors.white, fontSize: 22),
                               ),
                               onPressed: () {
-                                final phone_number = _phoneNumber.text;
-                                final password = _password.text;
-                                login(phone_number, password);
+                                if(formKey.currentState!.validate()) {
+                                  final phone_number = _phoneNumber.text;
+                                  final password = _password.text;
+                                  login(phone_number, password);
+                                }
                               },
                             ),
 

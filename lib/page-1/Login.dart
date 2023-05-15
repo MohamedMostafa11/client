@@ -125,8 +125,6 @@ class _LoginPageState extends State<LoginPage> {
                                     myTTS.speakArabic('تم الدخول بنجاح');
                                     }
                                   }
-
-
                                   )
                           ),
                           Container(

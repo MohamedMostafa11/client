@@ -10,6 +10,8 @@ class RegisterPage2 extends StatefulWidget {
 
 class _RegisterPageState2 extends State<RegisterPage2> {
   final formKey = GlobalKey<FormState>();
+  bool secure = true;
+  bool secure2 = true;
   final _usernameController = TextEditingController();
   final _phoneNumberController = TextEditingController();
   final _linkedPhoneNumberController = TextEditingController();
@@ -112,6 +114,7 @@ class _RegisterPageState2 extends State<RegisterPage2> {
                     padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     child: TextFormField(
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.person),
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.teal),
                           borderRadius: BorderRadius.circular(90.0),
@@ -139,6 +142,7 @@ class _RegisterPageState2 extends State<RegisterPage2> {
                     child: TextFormField(
                       maxLength: 11,
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.phone),
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.teal),
                           borderRadius: BorderRadius.circular(90.0),
@@ -163,6 +167,7 @@ class _RegisterPageState2 extends State<RegisterPage2> {
                     child: TextFormField(
                       maxLength: 11,
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.phone),
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.teal),
                           borderRadius: BorderRadius.circular(90.0),
@@ -185,8 +190,17 @@ class _RegisterPageState2 extends State<RegisterPage2> {
                   Container(
                     padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     child: TextFormField(
-                      obscureText: true,
+                      obscureText: secure,
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.lock),
+                        suffixIcon: IconButton(
+                            onPressed: (){
+                              setState(() {
+                                secure = !secure;
+                              });
+                            },
+                            icon: secure ? Icon(Icons.visibility):Icon(Icons.visibility_off),
+                            color: Color(0xFF063F37)),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(90.0),
                         ),
@@ -209,8 +223,17 @@ class _RegisterPageState2 extends State<RegisterPage2> {
                   Container(
                     padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     child: TextFormField(
-                      obscureText: true,
+                      obscureText: secure2,
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.lock_clock_outlined),
+                        suffixIcon: IconButton(
+                            onPressed: (){
+                              setState(() {
+                                secure2 = !secure2;
+                              });
+                            },
+                            icon: secure2 ? Icon(Icons.visibility):Icon(Icons.visibility_off),
+                            color: Color(0xFF083F3A)),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(90.0),
                         ),
@@ -247,12 +270,18 @@ class _RegisterPageState2 extends State<RegisterPage2> {
                         style: TextStyle(color: Colors.white, fontSize: 22),
                       ),
                       onPressed: () {
-                        final username = _usernameController.text;
-                        final phoneNumber = _phoneNumberController.text;
-                        final linkedPhoneNumber = _linkedPhoneNumberController.text;
-                        final password = _passwordController.text;
-                        final confirmPassword = _confirmPasswordController.text;
-                        register(context, username, phoneNumber, linkedPhoneNumber, password, confirmPassword);
+                        if(formKey.currentState!.validate()) {
+                          final username = _usernameController.text;
+                          final phoneNumber = _phoneNumberController.text;
+                          final linkedPhoneNumber = _linkedPhoneNumberController
+                              .text;
+                          final password = _passwordController.text;
+                          final confirmPassword = _confirmPasswordController
+                              .text;
+                          register(
+                              context, username, phoneNumber, linkedPhoneNumber,
+                              password, confirmPassword);
+                        }
                       },
                     ),
 
