@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:client/page-1/Login3.dart';
+import 'package:client/tts2.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'Login2.dart';
-import 'login.dart';
+MyTTS myTTS = MyTTS();
 
 class RegisterPage3 extends StatefulWidget {
   @override
@@ -371,7 +371,7 @@ class _RegisterPageState3 extends State<RegisterPage3> {
 
                       onPressed: ()async{
                         if(formKey.currentState!.validate()) {
-                          String url = 'http://192.168.1.4:8000/api/register';
+                          String url = 'http://192.168.1.4:8000/api/register/';
                           http.Response response = await http.post(
                             Uri.parse(url),
                             headers: <String, String>{
@@ -392,7 +392,8 @@ class _RegisterPageState3 extends State<RegisterPage3> {
                           Navigator.push(context,
                               MaterialPageRoute(builder: (context) => LoginPage3()));
                         }
-
+                        await myTTS.speakEnglish('Register Success'); // speak English message
+                        await myTTS.speakArabic('تم التسجيل');
                       }
 
                     ),

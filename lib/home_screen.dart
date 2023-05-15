@@ -1,7 +1,5 @@
 import 'package:client/document_reader.dart';
 import 'package:client/object_detection/obj_camera_service.dart';
-import 'package:client/page-1/Login.dart';
-import 'package:client/page-1/Login2.dart';
 import 'package:client/page-1/Login3.dart';
 import 'package:client/tts2.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +15,6 @@ import 'package:client/face_recognition/ml_services.dart';
 import 'face_recognition/camera_service.dart';
 import 'face_recognition/face_detector_service.dart';
 import 'locator.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 MyTTS myTTS = MyTTS();
 
 class Home extends StatefulWidget {
@@ -101,7 +98,7 @@ class _HomeState extends State<Home> {
         break;
       case "admin":
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return LoginPage();
+          return LoginPage3();
         }));
         break;
       case "back":

@@ -1,14 +1,10 @@
 import 'dart:convert';
-
 import 'package:client/page-1/Admin.dart';
-import 'package:client/page-1/register2.dart';
 import 'package:client/page-1/register3.dart';
+import 'package:client/tts2.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
-import '../tts.dart';
-import 'register.dart';
-
+MyTTS myTTS = MyTTS();
 class LoginPage3 extends StatefulWidget {
   @override
   State<LoginPage3> createState() => _LoginPageState3();
@@ -220,7 +216,7 @@ class _LoginPageState3 extends State<LoginPage3> {
                               },*/
                               onPressed: ()async{
                                   if (formKey.currentState!.validate()) {
-                                    String url = 'http://192.168.1.4:8000/api/login';
+                                    String url = 'http://192.168.1.4:8000/api/login/';
                                     http.Response response = await http.post(
                                       Uri.parse(url),
                                       headers: <String, String>{
@@ -237,6 +233,8 @@ class _LoginPageState3 extends State<LoginPage3> {
                                     print(body);
                                     Navigator.push(context,
                                         MaterialPageRoute(builder: (context) => Admin()));
+                                    await myTTS.speakEnglish('Login Success'); // speak English message
+                                    await myTTS.speakArabic('تم الدخول');
                                   }
                               },
                             ),

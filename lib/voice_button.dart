@@ -1,4 +1,4 @@
-import 'package:client/page-1/Login.dart';
+import 'package:client/page-1/Login3.dart';
 import 'package:client/tts.dart';
 import 'package:client/tts2.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +44,7 @@ class _Voice_ButtonState extends State<Voice_Button> {
       case 3:
         {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return LoginPage();
+            return LoginPage3();
           }));
           TTS().speak("Opened Login admin Page.");
           myTTS.speakArabic('تم فتح صفحة تسجيل الدخول للمساعد');
