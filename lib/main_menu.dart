@@ -26,9 +26,9 @@ class _Main_menuState extends State<Main_menu> {
     super.initState();
     AlanVoice.deactivate();
     WidgetsBinding.instance
-        .addPostFrameCallback((_) {
+        .addPostFrameCallback((_) async {
           TTS().speak("Opened main menu");
-          myTTS.speakArabic('تم فتح القائمة');
+          await myTTS.speakArabic('تم فتح القائمة');
     });
   }
 
