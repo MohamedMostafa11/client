@@ -20,10 +20,9 @@ class _Doc_ReaderState extends State<Doc_Reader> {
   void initState() {
     super.initState();
     AlanVoice.deactivate();
-    WidgetsBinding.instance
-        .addPostFrameCallback((_) {
-          TTS().speak("Opened Doc reader");
-          myTTS.speakArabic('تم فتح القارئ');
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      TTS().speak("Opened Doc reader");
+      myTTS.speakArabic('تم فتح القارئ');
     });
   }
 
@@ -36,7 +35,7 @@ class _Doc_ReaderState extends State<Doc_Reader> {
       appBar: AppBar(
         backgroundColor: Colors.teal[700],
         title: Text(
-          'BPT',
+          'Insight',
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,

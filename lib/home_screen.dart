@@ -150,7 +150,7 @@ class _HomeState extends State<Home> {
 
         appBar: AppBar(
           backgroundColor: Colors.teal[500],
-          title: Text('BPT'),
+          title: Text('Insight'),
           centerTitle: true,
         ),
 
@@ -166,7 +166,7 @@ class _HomeState extends State<Home> {
                     width: 200,
                   )),
               Text(
-                'BPT',
+                'Insight',
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
@@ -176,7 +176,7 @@ class _HomeState extends State<Home> {
                 ),
 // =======
 //         child: Text(
-//           'BPT',
+//           'Insight',
 //           style: TextStyle(
 //             fontSize: 35.0,
 //             fontWeight: FontWeight.bold,

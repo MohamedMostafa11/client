@@ -13,7 +13,7 @@ class Admin extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.teal[500],
-        title: Text('BPT'),
+        title: Text('Insight'),
         centerTitle: true,
       ),
       body: Align(

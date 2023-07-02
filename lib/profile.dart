@@ -8,7 +8,7 @@ class Profile extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red[300],
-        title: Text('BPT'),
+        title: Text('Insight'),
         centerTitle: true,
       ),
       body: Padding(

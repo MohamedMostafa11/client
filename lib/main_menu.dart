@@ -12,6 +12,7 @@ import 'object_detection.dart';
 import 'face_recognition/face_ui.dart';
 import 'distance_calculation/object_detect.dart';
 import 'face_recognition/face_rec.dart';
+
 MyTTS myTTS = MyTTS();
 
 class Main_menu extends StatefulWidget {
@@ -25,10 +26,9 @@ class _Main_menuState extends State<Main_menu> {
   void initState() {
     super.initState();
     AlanVoice.deactivate();
-    WidgetsBinding.instance
-        .addPostFrameCallback((_) async {
-          TTS().speak("Opened main menu");
-          await myTTS.speakArabic('تم فتح القائمة');
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      TTS().speak("Opened main menu");
+      await myTTS.speakArabic('تم فتح القائمة');
     });
   }
 
@@ -38,7 +38,7 @@ class _Main_menuState extends State<Main_menu> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.teal[500],
-        title: Text('BPT'),
+        title: Text('Insight'),
         centerTitle: true,
       ),
       body: Align(

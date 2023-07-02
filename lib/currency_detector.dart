@@ -8,7 +8,7 @@ class Currency_detector extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
-        title: Text('BPT'),
+        title: Text('Insight'),
         centerTitle: true,
       ),
       body: Center(

@@ -31,7 +31,7 @@ class _ObjectDetectionState extends State<ObjectDetection> {
       appBar: AppBar(
         backgroundColor: Colors.grey[900],
         title: Text(
-          'BPT',
+          'Insight',
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
